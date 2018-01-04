@@ -1,55 +1,54 @@
 import React from 'react'
-import { Animated, Easing, TouchableHighlight } from 'react-native'
+import { TouchableHighlight, Text } from 'react-native'
 import { StackNavigator } from 'react-navigation'
-import { MaterialIcons } from '@expo/vector-icons'
 import Home from '../layouts/Home'
+import Deck from '../layouts/Deck'
 import NewDeck from '../layouts/NewDeck'
-import styles from '../styles'
-
-const SettingsButton = () => (
-  <TouchableHighlight
-    onPress={() => {}}
-    underlayColor='transparent'
-  >
-    <MaterialIcons
-      color={styles.colors.darkGrey}
-      name="settings"
-      size={24}
-    />
-  </TouchableHighlight>
-)
+import gs from '../styles'
 
 const Navigation = StackNavigator(
   {
     Home: {
       screen: Home,
       path: '/',
-      navigationOptions: {
+      navigationOptions: ({ navigation }) => ({
         title: 'Home',
         headerBackTitle: null,
-        // headerRight: <SettingsButton />,
-      },
+      }),
+    },
+    Deck: {
+      screen: Deck,
+      path: '/deck/:name',
+      navigationOptions: ({ navigation }) => ({
+        title: `${navigation.state.params.name}`,
+        headerBackTitle: null,
+      }),
     },
     NewDeck: {
       screen: NewDeck,
       path: '/new-deck',
-      navigationOptions: {
+      navigationOptions: ({ navigation }) => ({
         title: 'New Deck',
         headerBackTitle: null,
-        // headerRight: <SettingsButton />,
-      },
+      }),
     },
   },
   {
     headerMode: 'float',
     navigationOptions: {
       headerStyle: {
-        backgroundColor: styles.colors.white,
+        backgroundColor: gs.colors.white,
+        borderBottomColor: 'transparent',
+        borderWidth: 0,
         height: 50,
         paddingLeft: 15,
-        paddingRight: 25,
+        paddingRight: 15,
+        shadowColor: gs.colors.lightGrey,
+        shadowOffset: { height: 1, width: 0 },
+        shadowOpacity: 0.6,
+        shadowRadius: 2,
       },
-      headerTintColor: styles.colors.darkGrey,
+      headerTintColor: gs.colors.darkGrey,
       headerTitleStyle: {
         fontFamily: 'muli-black',
         fontSize: 16,

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { AppLoading, Font } from 'expo'
 import Navigation from './components/Navigation'
-import styles from './styles'
+import gs from './styles'
 
 export default class App extends Component {
   state = {
@@ -33,9 +33,9 @@ export default class App extends Component {
     return (
       <View style={{
         flex: 1,
-        backgroundColor: styles.colors.white,
         alignItems: 'stretch',
         justifyContent: 'center',
+        backgroundColor: gs.colors.white,
       }}>
         <Navigation />
       </View>

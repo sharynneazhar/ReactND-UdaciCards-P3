@@ -1,9 +1,9 @@
 import colors from './colors'
 import fonts from './fonts'
 
-const styles = {
+const gs = {
   colors,
   fonts,
 }
 
-export default styles;
+export default gs;

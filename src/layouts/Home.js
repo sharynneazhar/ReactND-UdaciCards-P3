@@ -1,23 +1,33 @@
 import React, { Component } from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import Banner from '../components/Banner'
+import Button from '../components/Button'
+import NoDeck from '../components/NoDeck'
+import gs from '../styles'
 import {
-  Animated,
-  Button,
   ScrollView,
   StatusBar,
   StyleSheet,
   View,
 } from 'react-native'
 
+
 export default class Home extends Component {
   render() {
     const { navigation } = this.props
     return (
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.container}>
+        <NoDeck />
         <Button
+          round
           onPress={() => navigation.navigate('NewDeck')}
-          title="Add a New Deck"
+          item={
+            <Ionicons
+              color={gs.colors.white}
+              name='md-add'
+              size={28}
+            />
+          }
+          style={styles.button}
         />
         <StatusBar barStyle="default" />
       </ScrollView>
@@ -26,5 +36,20 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: gs.colors.white,
+    padding: 40,
+  },
+  button: {
+    position: 'absolute',
+    bottom: 60,
+    right: 25,
+    backgroundColor: gs.colors.blue,
+    borderColor: gs.colors.blue,
+    height: 60,
+    width: 60,
+    paddingTop: 8,
+  },
 })
