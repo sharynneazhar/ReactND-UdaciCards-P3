@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { AppLoading, Font } from 'expo'
 import Navigation from './components/Navigation'
+import styles from './styles'
 
 export default class App extends Component {
   state = {
@@ -30,18 +31,14 @@ export default class App extends Component {
     }
 
     return (
-      <View style={styles.container}>
+      <View style={{
+        flex: 1,
+        backgroundColor: styles.colors.white,
+        alignItems: 'stretch',
+        justifyContent: 'center',
+      }}>
         <Navigation />
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'stretch',
-    justifyContent: 'center',
-  },
-})
