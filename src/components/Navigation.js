@@ -4,6 +4,7 @@ import { StackNavigator } from 'react-navigation'
 import Home from '../layouts/Home'
 import Deck from '../layouts/Deck'
 import NewDeck from '../layouts/NewDeck'
+import NewCard from '../layouts/NewCard'
 import gs from '../styles'
 
 const Navigation = StackNavigator(
@@ -29,6 +30,14 @@ const Navigation = StackNavigator(
       path: '/new-deck',
       navigationOptions: ({ navigation }) => ({
         title: 'New Deck',
+        headerBackTitle: null,
+      }),
+    },
+    NewCard: {
+      screen: NewCard,
+      path: '/new-card',
+      navigationOptions: ({ navigation }) => ({
+        title: 'New Card',
         headerBackTitle: null,
       }),
     },

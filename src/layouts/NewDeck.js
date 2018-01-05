@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Sae } from 'react-native-textinput-effects';
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import Button from '../components/Button'
 import gs from '../styles'
 import {
   Keyboard,
   StyleSheet,
   Text,
+  TextInput,
   View,
 } from 'react-native'
 
@@ -31,19 +32,22 @@ export default class NewDeck extends Component {
         <Text style={styles.text}>
           What's the title of your deck?
         </Text>
-        <Sae
+        <TextInput
+          blurOnSubmit
+          autoCapitalize='words'
           autoCorrect={false}
-          blurOnSubmit={true}
-          iconClass={MaterialCommunityIcons}
-          iconName={'lead-pencil'}
-          iconColor={gs.colors.blue}
-          inputStyle={styles.input}
-          label='Deck Title'
-          labelStyle={styles.label}
           onBlur={() => Keyboard.dismiss}
           onChangeText={this.handleInputChange}
           onSubmitEditing={this.handleSubmit}
+          placeholder="Deck Title"
           returnKeyType='done'
+          style={styles.input}
+          value={this.state.name}
+        />
+        <Button
+          onPress={() => navigation.navigate('NewCard')}
+          item={<Text style={styles.buttonText}>{'Let\'s add some cards!'}</Text>}
+          style={styles.button}
         />
       </View>
     )
@@ -58,17 +62,28 @@ const styles = StyleSheet.create({
     paddingRight: 40,
     backgroundColor: gs.colors.white,
   },
+  button: {
+    width: '100%',
+    marginTop: 50,
+    padding: 15,
+    backgroundColor: gs.colors.orange,
+    borderRadius: 4,
+  },
+  buttonText: {
+    color: gs.colors.white,
+    fontSize: 15,
+    fontFamily: gs.fonts.bold,
+  },
   text: {
     marginBottom: 50,
     color: gs.colors.darkGrey,
     fontFamily: gs.fonts.bold,
     fontSize: 32,
   },
-  label: {
-    color: gs.colors.darkGrey,
-    fontFamily: gs.fonts.bold,
-  },
   input: {
+    marginLeft: 3,
+    borderBottomWidth: 2,
+    borderBottomColor: gs.colors.blue,
     color: gs.colors.darkGrey,
     fontFamily: gs.fonts.bold,
     fontSize: 20,

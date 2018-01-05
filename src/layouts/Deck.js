@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import gs from '../styles'
 import Button from '../components/Button'
 import Card from '../components/Card'
+import NoCard from '../components/NoCard'
 import {
   StatusBar,
   StyleSheet,
@@ -19,10 +20,10 @@ export default class Deck extends Component {
     const deckName = navigation.state.params.name
     return (
       <View style={styles.container}>
-        <Card stacked />
+        <NoCard />
         <Button
-          onPress={() => {}}
-          item={<Text style={styles.text}>Add a Card</Text>}
+          onPress={() => navigation.navigate('NewCard')}
+          item={<Text style={styles.buttonText}>Add a Card</Text>}
           style={styles.button}
         />
       </View>
@@ -39,13 +40,13 @@ const styles = StyleSheet.create({
   },
   button: {
     position: 'absolute',
-    bottom: 40,
+    bottom: 50,
     width: '100%',
     padding: 15,
     backgroundColor: gs.colors.orange,
     borderRadius: 4,
   },
-  text: {
+  buttonText: {
     color: gs.colors.white,
     fontSize: 15,
     fontFamily: gs.fonts.bold,

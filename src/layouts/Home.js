@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   button: {
     position: 'absolute',
     bottom: 60,
-    right: 25,
+    right: 35,
     backgroundColor: gs.colors.blue,
     borderColor: gs.colors.blue,
     height: 60,
