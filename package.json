@@ -23,7 +23,6 @@
   "devDependencies": {
     "jest-expo": "23.0.0",
     "react-native-scripts": "1.8.1",
-    "react-test-renderer": "16.0.0",
-    "remote-redux-devtools": "^0.5.12"
+    "react-test-renderer": "16.0.0"
   }
 }

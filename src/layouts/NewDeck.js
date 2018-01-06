@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 import Button from '../components/Button'
 import gs from '../styles'
 import {
@@ -48,6 +47,7 @@ export default class NewDeck extends Component {
           onPress={() => navigation.navigate('NewCard')}
           item={<Text style={styles.buttonText}>{'Let\'s add some cards!'}</Text>}
           style={styles.button}
+          backgroundColor={gs.colors.orange}
         />
       </View>
     )
@@ -66,7 +66,6 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: 50,
     padding: 15,
-    backgroundColor: gs.colors.orange,
     borderRadius: 4,
   },
   buttonText: {

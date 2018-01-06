@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux';
 import { AppLoading, Font } from 'expo'
 import Navigation from './components/Navigation'
+import reducers from './reducers'
 import gs from './styles'
 
 export default class App extends Component {
@@ -31,14 +34,21 @@ export default class App extends Component {
     }
 
     return (
-      <View style={{
-        flex: 1,
-        alignItems: 'stretch',
-        justifyContent: 'center',
-        backgroundColor: gs.colors.white,
-      }}>
-        <Navigation />
-      </View>
+      <Provider store={createStore(reducers)}>
+        <View style={styles.container}>
+          <Navigation />
+        </View>
+      </Provider>
+
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    backgroundColor: gs.colors.white,
+  },
+})

@@ -1,8 +1,7 @@
 import React from 'react'
-import { TouchableHighlight, Text } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 import Home from '../layouts/Home'
-import Deck from '../layouts/Deck'
+import DeckDetail from '../layouts/DeckDetail'
 import NewDeck from '../layouts/NewDeck'
 import NewCard from '../layouts/NewCard'
 import gs from '../styles'
@@ -18,10 +17,10 @@ const Navigation = StackNavigator(
       }),
     },
     Deck: {
-      screen: Deck,
+      screen: DeckDetail,
       path: '/deck/:name',
       navigationOptions: ({ navigation }) => ({
-        title: `${navigation.state.params.name}`,
+        title: 'Study Set',
         headerBackTitle: null,
       }),
     },
@@ -50,12 +49,11 @@ const Navigation = StackNavigator(
         borderBottomColor: 'transparent',
         borderWidth: 0,
         height: 50,
-        paddingLeft: 15,
-        paddingRight: 15,
-        shadowColor: gs.colors.lightGrey,
+        paddingHorizontal: 15,
+        shadowColor: gs.colors.grey,
         shadowOffset: { height: 1, width: 0 },
         shadowOpacity: 0.6,
-        shadowRadius: 2,
+        shadowRadius: 8,
       },
       headerTintColor: gs.colors.darkGrey,
       headerTitleStyle: {

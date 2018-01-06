@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import InputScrollView from 'react-native-input-scroll-view'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 import Button from '../components/Button'
 import { goHome } from '../utils/helpers'
 import gs from '../styles'
@@ -61,14 +60,16 @@ export default class NewCard extends Component {
             styles.button,
             { marginTop: 60 },
           ]}
+          backgroundColor={gs.colors.orange}
         />
         <Button
           onPress={() => navigation.dispatch(goHome)}
           item={<Text style={styles.buttonText}>Done</Text>}
           style={[
             styles.button,
-            { marginTop: 25, backgroundColor: gs.colors.blue },
+            { marginTop: 25 },
           ]}
+          backgroundColor={gs.colors.blue}
         />
       </InputScrollView>
     )
@@ -86,7 +87,6 @@ const styles = StyleSheet.create({
   button: {
     width: '100%',
     padding: 15,
-    backgroundColor: gs.colors.orange,
     borderRadius: 4,
   },
   buttonText: {
